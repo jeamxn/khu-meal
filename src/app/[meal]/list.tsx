@@ -58,7 +58,7 @@ const List = ({
 
   return (
     <>
-      <div className="w-full h-full fixed top-0 left-0">
+      <div className="w-full h-screen fixed top-0 left-0">
         <div className="min-md:hidden">
           {
             ["/mor.jpeg", "/day.jpeg", "/night.jpeg"].map((e, i) => {
@@ -69,17 +69,17 @@ const List = ({
                   backgroundImage: `url(${e})`,
                   opacity: thisOpacity > 1 ? (i === 2 ? 1 : 2 - thisOpacity) : i === 0 ? 1 : thisOpacity,
                 }}>
-                  <div className="w-full h-full bg-black/30" />
+                  <div className="w-full h-screen bg-black/30" />
                 </div>
               );
             })
           }
         </div>
         <div className="bg-[url('/day.jpeg')] bg-cover bg-center w-screen h-screen fixed top-0 left-0 max-md:hidden">
-          <div className="w-full h-full bg-black/30" />
+          <div className="w-full h-screen bg-black/30" />
         </div>
       </div>
-      <div className="w-full max-w-[1500px] h-full min-md:max-h-[1000px] min-md:p-4 flex min-md:flex-col max-md:flex-col-reverse items-center justify-center gap-3">
+      <div className="w-full max-w-[1500px] h-screen min-md:max-h-[1000px] min-md:p-4 flex min-md:flex-col max-md:flex-col-reverse items-center justify-center gap-3">
         <div className="w-full flex justify-center items-center gap-3 max-md:p-4 max-md:pt-0">
           <Link href="/" className="glass flex flex-row items-center justify-center h-12 cursor-pointer w-[calc(1/3*100%-5px)] max-md:hidden">
             <p className="text-white font-bold text-xl text-center">
