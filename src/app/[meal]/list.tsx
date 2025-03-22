@@ -209,7 +209,7 @@ const List = ({
               href="/"
               className="glass flex flex-row items-center justify-center h-14 cursor-pointer w-full"
               onClick={() => {
-                localStorage.removeItem("meal");
+                removeCookie("meal");
               }}
             >
               <p className="text-white font-bold text-xl text-center">
