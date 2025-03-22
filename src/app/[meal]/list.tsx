@@ -2,12 +2,13 @@
 
 import "dayjs/locale/ko";
 
-import dayjs from "dayjs";
+import dayjs, { Dayjs } from "dayjs";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React from "react";
 
 import Meal from "@/components/meal";
+import { removeCookie, setCookie } from "@/utils/cookie";
 
 dayjs.locale("ko");
 
@@ -21,7 +22,7 @@ const List = ({
   const router = useRouter();
 
   React.useEffect(() => { 
-    localStorage.setItem("meal", meal);
+    setCookie("meal", meal, 100);
   }, [meal]);
   
   const [date, setDate] = React.useState(dateInserted ? dayjs(dateInserted, "YYYY-MM-DD") : dayjs());
@@ -106,7 +107,7 @@ const List = ({
               href="/"
               className="glass flex flex-row items-center justify-center h-14 cursor-pointer w-[calc(1/3*100%-5px)] max-md:hidden"
               onClick={() => {
-                localStorage.removeItem("meal");
+                removeCookie("meal");
               }}
             >
               <p className="text-white font-bold text-xl text-center">

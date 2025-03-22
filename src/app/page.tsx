@@ -2,18 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import React from "react";
 
 const Home = () => {
-  const router = useRouter();
-
-  React.useEffect(() => {
-    const meal = localStorage.getItem("meal");
-    if(meal) {
-      router.push(`/${meal}`);
-    }
-  }, []);
 
   return (
     <div
