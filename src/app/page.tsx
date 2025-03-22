@@ -1,12 +1,13 @@
 "use client";
 
+import Link from "next/link";
 import React from "react";
 
 const Home = () => {
 
   return (
     <>
-      asdf
+      <Link href="/asdf">asdf</Link>
     </>
   );
 };
