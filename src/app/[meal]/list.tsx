@@ -103,17 +103,17 @@ const List = ({
           }}
         >
           <div className="w-full flex justify-center items-center gap-3 max-md:p-4 max-md:pt-0">
-            <Link
-              href="/"
+            <div
               className="glass flex flex-row items-center justify-center h-14 cursor-pointer w-[calc(1/3*100%-5px)] max-md:hidden"
               onClick={() => {
                 removeCookie("meal");
+                router.push("/");
               }}
             >
               <p className="text-white font-bold text-xl text-center">
                 국제캠퍼스 제2기숙사
               </p>
-            </Link>
+            </div>
             <div className="flex flex-row items-center justify-center gap-3 min-md:w-2/3 max-md:w-full">
               <div className="glass flex flex-row items-center justify-center h-14 w-full cursor-pointer order-1" onClick={() => {
                 setDate(dayjs());
@@ -205,17 +205,17 @@ const List = ({
           </div>
 
           <div className="w-full p-4 pb-0 min-md:hidden">
-            <Link
-              href="/"
+            <div
               className="glass flex flex-row items-center justify-center h-14 cursor-pointer w-full"
               onClick={() => {
                 removeCookie("meal");
+                router.push("/");
               }}
             >
               <p className="text-white font-bold text-xl text-center">
                 국제캠퍼스 제2기숙사
               </p>
-            </Link>
+            </div>
           </div>
         </div>
       </div>

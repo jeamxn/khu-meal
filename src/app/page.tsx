@@ -21,7 +21,7 @@ const Home = () => {
         <h1 className="text-2xl font-bold text-center text-white">경희대학교 학식 알리미</h1>
       </div>
 
-      <Link href="/2gik" className="glass py-3 px-3 w-full flex flex-col items-center justify-center gap-3">
+      <Link href="/2gik" className="glass py-3 px-3 w-full max-w-96 flex flex-col items-center justify-center gap-3">
         <Image src="/inter2gik.jpg" className="w-full rounded-lg" width={500} height={500} alt="제2긱" />
         <p className="text-white font-bold text-xl text-center">국제캠퍼스 - 제2기숙사</p>
       </Link>
