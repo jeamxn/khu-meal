@@ -1,0 +1,25 @@
+{
+  "name": "경희대 학식",
+  "short_name": "경희대 학식",
+  "description": "경희대 학식을 간편하게 확인하세요!",
+  "icons": [
+    { 
+      "src": "/favicon.ico", 
+      "type": "image/x-icon", 
+      "sizes": "16x16 32x32"
+    },
+    { 
+      "src": "/icons/icon-192.png", 
+      "type": "image/png", 
+      "sizes": "192x192"
+    },
+    { 
+      "src": "/icons/icon-512.png", 
+      "type": "image/png", 
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "display": "fullscreen",
+  "orientation": "portrait-primary"
+}

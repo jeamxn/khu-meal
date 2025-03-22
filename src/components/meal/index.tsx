@@ -29,12 +29,15 @@ const Meal = ({
         {
           data.map((e, j) => (
             <React.Fragment key={j}>
-              <div className="flex flex-col items-start justify-start gap-1">
+              <div className="flex flex-col items-start justify-start gap-2">
                 {
                   e.title === "" ? e.time === "" ? null : (
                     <p className="text-white font-bold text-xl">{e.time}</p>
                   ) : (
-                    <p className="text-white font-bold text-xl">{e.title} ({e.time})</p>
+                    <div className="flex flex-col items-start justify-start gap-0">
+                      <p className="text-white font-bold text-xl">{e.title}</p>
+                      <p className="text-white font-medium text-base">운영시간 {e.time}</p>
+                    </div>
                   )
                 }
                 {

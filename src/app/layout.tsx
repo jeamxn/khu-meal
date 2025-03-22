@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { headers } from "next/headers";
 import React from "react";
@@ -13,11 +13,11 @@ export const generateMetadata = async (): Promise<Metadata> => {
       siteName: json.name,
       description: json.description,
       type: "website",
-      url: "https://경희대.kr",
+      url: "http://192.168.0.76:3000",
       locale: "ko_KR",
       images: [
         {
-          url: "https://경희대.kr/og-image.png",
+          url: "http://192.168.0.76:3000/og-image.png",
           width: 4800,
           height: 2520,
         }
@@ -42,8 +42,16 @@ export const generateMetadata = async (): Promise<Metadata> => {
       },
     ],
     manifest: "/manifest.json",
-    metadataBase: new URL("https://경희대.kr"),
+    metadataBase: new URL("http://192.168.0.76:3000"),
   };
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({
@@ -52,24 +60,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko" className="w-full h-full p-0 m-0 bg-black">
+    <html lang="ko" className="w-full h-full p-0 m-0">
       <head>
-        {/* <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" /> */}
-        <meta name='viewport' content='initial-scale=1, viewport-fit=cover' />
-        <meta name="theme-color" content="#000000" />
         <meta name="mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        {/* <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" /> */}
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
       </head>
-      <body className="w-full h-full">
-        <div
-          className="w-full h-full flex flex-col items-center justify-center m-0 p-0 bg-black"
+      <body
+        className="w-full flex flex-col items-center justify-center h-screen"
+      >
+        {children}
+        {/* <div
           style={{
-            paddingBottom: "env(safe-area-inset-bottom)",
+            width: "100%",
+            height: "calc(env(safe-area-inset-bottom))"
           }}
-        >
-          {children}
-        </div>
+        /> */}
       </body>
     </html>
   );
