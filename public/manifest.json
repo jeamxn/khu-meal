@@ -1,7 +1,7 @@
 {
-  "name": "경희대 학식",
-  "short_name": "경희대 학식",
-  "description": "경희대 학식을 간편하게 확인하세요!",
+  "name": "경희대학교 학식",
+  "short_name": "경희대학교 학식",
+  "description": "경희대학교 학식을 간편하게 확인하세요!",
   "icons": [
     { 
       "src": "/favicon.ico", 
