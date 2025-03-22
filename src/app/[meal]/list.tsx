@@ -65,7 +65,7 @@ const List = ({
               const thisOpacity = current - i + 1;
 
               return (
-                <div key={i} className="bg-cover bg-center w-full h-full fixed top-0 left-0" style={{
+                <div key={i} className="bg-cover bg-center w-screen h-screen fixed top-0 left-0" style={{
                   backgroundImage: `url(${e})`,
                   opacity: thisOpacity > 1 ? (i === 2 ? 1 : 2 - thisOpacity) : i === 0 ? 1 : thisOpacity,
                 }}>
@@ -75,7 +75,7 @@ const List = ({
             })
           }
         </div>
-        <div className="bg-[url('/day.jpeg')] bg-cover bg-center w-full h-full fixed top-0 left-0 max-md:hidden">
+        <div className="bg-[url('/day.jpeg')] bg-cover bg-center w-screen h-screen fixed top-0 left-0 max-md:hidden">
           <div className="w-full h-full bg-black/30" />
         </div>
       </div>
