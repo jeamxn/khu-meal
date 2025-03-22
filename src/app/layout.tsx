@@ -52,15 +52,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko" className="w-full h-screen">
+    <html lang="ko" className="w-full h-full p-0 m-0 bg-black">
       <head>
+        {/* <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" /> */}
+        <meta name='viewport' content='initial-scale=1, viewport-fit=cover' />
         <meta name="theme-color" content="#000000" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        {/* <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" /> */}
       </head>
-      <body className="w-full h-screen">
-        <div className="w-full h-screen flex flex-col items-center justify-center">
+      <body className="w-full h-full">
+        <div
+          className="w-full h-full flex flex-col items-center justify-center m-0 p-0 bg-black"
+          style={{
+            paddingBottom: "env(safe-area-inset-bottom)",
+          }}
+        >
           {children}
         </div>
       </body>
