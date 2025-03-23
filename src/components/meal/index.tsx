@@ -1,15 +1,17 @@
 import React from "react";
 
+export interface MealData {
+  title: string;
+  time: string;
+  menu: string[];
+}
+
 const Meal = ({
   data,
   type,
   className,
 }: {
-  data: {
-    title: string;
-    time: string;
-    menu: string[];
-  }[];
+  data: MealData[];
   type: "아침" | "점심" | "저녁";
   className?: string;
 }) => { 
@@ -27,7 +29,7 @@ const Meal = ({
       </div>
       <div className="flex flex-col items-start justify-start gap-5 overflow-y-auto w-full scrollbar-hide">
         {
-          data.map((e, j) => (
+          data.length ? data.map((e, j) => (
             <React.Fragment key={j}>
               <div className="flex flex-col items-start justify-start gap-2">
                 {
@@ -52,7 +54,9 @@ const Meal = ({
                 j === data.length - 1 ? null : <div className="w-full h-[1px] bg-white/10 border-b border-white/10" />
               } */}
             </React.Fragment>
-          ))
+          )) : (
+            <p className="text-white font-bold text-xl">메뉴가 없습니다.</p>
+          )
         }
       </div>
     </div>

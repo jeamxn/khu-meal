@@ -3,6 +3,8 @@ import "./globals.css";
 import { headers } from "next/headers";
 import React from "react";
 
+import Providers from "@/providers";
+
 export const generateMetadata = async (): Promise<Metadata> => {
   const json = await import("../../public/manifest.json");
   return {
@@ -68,13 +70,9 @@ export default function RootLayout({
       <body
         className="w-full flex flex-col items-center justify-center h-screen"
       >
-        {children}
-        {/* <div
-          style={{
-            width: "100%",
-            height: "calc(env(safe-area-inset-bottom))"
-          }}
-        /> */}
+        <Providers>
+          {children}
+        </Providers>
       </body>
     </html>
   );

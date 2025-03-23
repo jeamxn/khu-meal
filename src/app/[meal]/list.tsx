@@ -2,13 +2,15 @@
 
 import "dayjs/locale/ko";
 
-import dayjs, { Dayjs } from "dayjs";
-import Link from "next/link";
+import { useQuery } from "@tanstack/react-query";
+import dayjs from "dayjs";
 import { useRouter } from "next/navigation";
 import React from "react";
 
-import Meal from "@/components/meal";
+import Meal, { MealData } from "@/components/meal";
 import { removeCookie, setCookie } from "@/utils/cookie";
+import instance from "@/utils/instance";
+import LoadingSpinner from "@/components/loadingSpinner";
 
 dayjs.locale("ko");
 
@@ -61,8 +63,38 @@ const List = ({
     };
   }, []);
 
+  const [loading, setLoading] = React.useState(true);
+  const { data } = useQuery<{
+    breakfast: MealData[];
+    lunch: MealData[];
+    dinner: MealData[];
+  }>({
+    queryKey: ["meal", meal, date.format("YYYY-MM-DD")],
+    queryFn: async () => { 
+      setLoading(true);
+      const res = await instance.get(`/meal/${meal}/${date.format("YYYY-MM-DD")}`);
+      setLoading(false);
+      return res.data;
+    },
+    initialData: {
+      breakfast: [],
+      lunch: [],
+      dinner: [],
+    },
+  });
+
   return (
     <>
+      <style>
+        {`
+          html, body {
+            overflow: hidden;
+          }
+        `}
+      </style>
+      <div className="w-full h-full fixed top-0 left-0 z-50 flex flex-col items-center justify-center pointer-events-none">
+        <LoadingSpinner show={loading} size={50} />
+      </div>
       <div className="w-full h-[100svh] fixed top-0 left-0">
         <div className="min-md:hidden">
           {
@@ -142,63 +174,15 @@ const List = ({
             <div className="w-full h-full flex flex-row min-md:items-center min-md:justify-center gap-3 max-md:whitespace-nowrap" ref={itemRef}>
               <Meal
                 type="아침"
-                data={[
-                  {
-                    title: "교직원 식당",
-                    menu: Array(5).fill("0"),
-                    time: "07:30 ~ 09:00",
-                  },
-                  {
-                    title: "학생 식당 - 푸짐",
-                    menu: Array(5).fill("0"),
-                    time: "07:30 ~ 09:00",
-                  },
-                  {
-                    title: "학생 식당 - 든든",
-                    menu: Array(5).fill("0"),
-                    time: "07:30 ~ 09:00",
-                  },
-                ]}
+                data={data.breakfast}
               />
               <Meal
                 type="점심"
-                data={[
-                  {
-                    title: "교직원 식당",
-                    menu: Array(5).fill("0"),
-                    time: "07:30 ~ 09:00",
-                  },
-                  {
-                    title: "학생 식당 - 푸짐",
-                    menu: Array(5).fill("0"),
-                    time: "07:30 ~ 09:00",
-                  },
-                  {
-                    title: "학생 식당 - 든든",
-                    menu: Array(5).fill("0"),
-                    time: "07:30 ~ 09:00",
-                  },
-                ]}
+                data={data.lunch}
               />
               <Meal
                 type="저녁"
-                data={[
-                  {
-                    title: "교직원 식당",
-                    menu: Array(5).fill("0"),
-                    time: "07:30 ~ 09:00",
-                  },
-                  {
-                    title: "학생 식당 - 푸짐",
-                    menu: Array(5).fill("0"),
-                    time: "07:30 ~ 09:00",
-                  },
-                  {
-                    title: "학생 식당 - 든든",
-                    menu: Array(5).fill("0"),
-                    time: "07:30 ~ 09:00",
-                  },
-                ]}
+                data={data.dinner}
               />
               <div className="max-md:block hidden h-full w-4 opacity-0">.</div>
             </div>
