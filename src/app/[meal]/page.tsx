@@ -1,9 +1,10 @@
 
+import dayjs from "dayjs";
 import React from "react";
 
-import List from "./list";
 import instance from "@/utils/instance";
-import dayjs from "dayjs";
+
+import List from "./list";
 
 const Home = async ({
   params,

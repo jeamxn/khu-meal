@@ -7,10 +7,10 @@ import dayjs from "dayjs";
 import { useRouter } from "next/navigation";
 import React from "react";
 
+import LoadingSpinner from "@/components/loadingSpinner";
 import Meal, { MealData } from "@/components/meal";
 import { removeCookie, setCookie } from "@/utils/cookie";
 import instance from "@/utils/instance";
-import LoadingSpinner from "@/components/loadingSpinner";
 
 dayjs.locale("ko");
 
@@ -89,13 +89,6 @@ const List = ({
 
   return (
     <>
-      <style>
-        {`
-          html, body {
-            overflow: hidden;
-          }
-        `}
-      </style>
       <div className="w-full h-full fixed top-0 left-0 z-50 flex flex-col items-center justify-center pointer-events-none">
         <LoadingSpinner show={loading} size={50} />
       </div>

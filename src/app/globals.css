@@ -13,6 +13,10 @@
   --font-mono: var(--font-geist-mono);
 }
 
+html, body {
+  overflow: hidden;
+}
+
 body {
   font-family: "SUIT Variable", sans-serif;
   -webkit-tap-highlight-color: transparent;
