@@ -19,7 +19,7 @@ const Home = async () => {
         paddingTop: "calc(env(safe-area-inset-top))",
       }}
     >
-      <div className="bg-[url('/main.webp')] bg-cover bg-center w-screen h-screen fixed top-0 left-0 -z-10">
+      <div className="bg-[url('https://bucket.jeamxn.dev/public/khu-meal/main.webp')] bg-cover bg-center w-screen h-screen fixed top-0 left-0 -z-10">
         <div className="w-full h-full bg-black/70 backdrop-blur-xs" />
       </div>
       
