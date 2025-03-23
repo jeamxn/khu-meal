@@ -92,7 +92,7 @@ const List = ({
       <div className="w-full h-full fixed top-0 left-0 z-50 flex flex-col items-center justify-center pointer-events-none">
         <LoadingSpinner show={loading} size={50} />
       </div>
-      <div className="w-full h-[100svh] fixed top-0 left-0">
+      <div className="w-full h-full fixed top-0 left-0">
         <div className="min-md:hidden">
           {
             images.map((e, i) => {
@@ -126,13 +126,11 @@ const List = ({
         </div>
       </div>
 
-      <div
-        className="w-full h-full flex flex-col items-center justify-center m-0 p-0"
-      >
+      <div className="w-full h-[100dvh] flex flex-col items-center justify-center m-0 p-0">
         <div
           className="w-full max-w-[1500px] min-md:max-h-[1000px] min-md:p-4 flex min-md:flex-col max-md:flex-col-reverse items-center justify-center gap-3"
           style={{
-            height: "calc(100dvh - env(safe-area-inset-top) )",
+            height: "calc(100% - env(safe-area-inset-top) )",
             paddingTop: "calc(env(safe-area-inset-top) / 2)",
           }}
         >

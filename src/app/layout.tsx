@@ -67,9 +67,7 @@ export default function RootLayout({
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
       </head>
-      <body
-        className="w-full flex flex-col items-center justify-center h-screen"
-      >
+      <body className="w-full flex flex-col items-start justify-start h-screen">
         <Providers>
           {children}
         </Providers>

@@ -15,7 +15,8 @@ const Home = async () => {
     <div
       className="w-full flex flex-col items-center justify-center gap-10 overflow-hidden"
       style={{
-        height: "calc(100svh - env(safe-area-inset-bottom) )",
+        height: "calc(100% - env(safe-area-inset-bottom) )",
+        paddingTop: "calc(env(safe-area-inset-top))",
       }}
     >
       <div className="bg-[url('/main.webp')] bg-cover bg-center w-screen h-screen fixed top-0 left-0 -z-10">
