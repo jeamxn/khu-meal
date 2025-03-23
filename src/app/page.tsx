@@ -1,10 +1,15 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-const Home = () => {
+import instance from "@/utils/instance";
+
+const Home = async () => {
+  const { data } = await instance.get<{
+    key: string;
+    title: string;
+    images: string[];
+  }[]>("/meal/list");
 
   return (
     <div
@@ -21,11 +26,15 @@ const Home = () => {
         <h1 className="text-2xl font-bold text-center text-white">경희대학교 학식 알리미</h1>
       </div>
 
-      <Link href="/2gik" className="glass py-3 px-3 w-full max-w-96 flex flex-col items-center justify-center gap-3">
-        <Image src="/inter2gik.jpg" className="w-full rounded-lg" width={500} height={500} alt="제2긱" />
-        <p className="text-white font-bold text-xl text-center">국제캠퍼스 - 제2기숙사</p>
-      </Link>
-      
+      {
+        data.map((e, i) => (
+          <Link key={i} href={`/${e.key}`} className="glass py-3 px-3 w-full max-w-96 flex flex-col items-center justify-center gap-3">
+            <Image src={e.images[0]} className="w-full rounded-lg aspect-video" width={1920} height={1080} alt={e.title} />
+            <p className="text-white font-bold text-xl text-center">{e.title}</p>
+          </Link>
+        ))
+      }
+
       <p className="text-white">순차적으로 지원하는 식당을 확대할 예정입니다!</p>
     </div>
   );
