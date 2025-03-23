@@ -3,6 +3,7 @@ import React from "react";
 
 import List from "./list";
 import instance from "@/utils/instance";
+import dayjs from "dayjs";
 
 const Home = async ({
   params,
@@ -19,7 +20,6 @@ const Home = async ({
   const { date } = await searchParams;
 
   const response = await instance.get(`/meal/${meal}`);
-  console.log(response.data.title);
   
   return (
     <List

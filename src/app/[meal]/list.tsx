@@ -123,7 +123,12 @@ const List = ({
             })
           }
         </div>
-        <div className="bg-[url('/day.jpeg')] bg-cover bg-center w-screen h-screen fixed top-0 left-0 max-md:hidden">
+        <div
+          className="bg-cover bg-center w-screen h-screen fixed top-0 left-0 max-md:hidden"
+          style={{
+            backgroundImage: `url(${images[0]})`,
+          }}
+        >
           <div className="w-full h-full bg-black/30" />
         </div>
       </div>
