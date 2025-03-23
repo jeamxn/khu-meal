@@ -127,7 +127,7 @@ const List = ({
       </div>
 
       <div
-        className="w-full flex flex-col items-center justify-center m-0 p-0"
+        className="w-full h-full flex flex-col items-center justify-center m-0 p-0"
       >
         <div
           className="w-full max-w-[1500px] min-md:max-h-[1000px] min-md:p-4 flex min-md:flex-col max-md:flex-col-reverse items-center justify-center gap-3"
@@ -136,6 +136,7 @@ const List = ({
             paddingTop: "calc(env(safe-area-inset-top) / 2)",
           }}
         >
+          <div className="h-1 w-full max-md:hidden">.</div>
           <div className="w-full flex justify-center items-center gap-3 max-md:p-4 max-md:pt-0">
             <div
               className="glass flex flex-row items-center justify-center h-14 cursor-pointer w-[calc(1/3*100%-5px)] max-md:hidden"

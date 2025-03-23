@@ -17,7 +17,7 @@ const Meal = ({
 }) => { 
   return (
     <div className={[
-      "glass w-full h-full flex flex-col items-start justify-start p-4 gap-3 snap-item max-md:min-w-[100%]",
+      "glass w-full h-full min-md:max-h-[900px] flex flex-col items-start justify-start p-4 gap-3 snap-item max-md:min-w-[100%]",
       className,
     ].join(" ")}>
       <div className="flex flex-row items-center justify-start gap-2">
