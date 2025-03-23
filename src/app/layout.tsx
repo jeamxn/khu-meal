@@ -1,6 +1,6 @@
+import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import { headers } from "next/headers";
 import React from "react";
 
 import Providers from "@/providers";
@@ -73,6 +73,7 @@ export default function RootLayout({
         <Providers>
           {children}
         </Providers>
+        <GoogleAnalytics gaId="G-Q120PCDL4Z" />
       </body>
     </html>
   );
