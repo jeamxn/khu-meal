@@ -1,4 +1,4 @@
-import Image from "next/image";
+/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import React from "react";
 
@@ -29,7 +29,7 @@ const Home = async () => {
       {
         data.map((e, i) => (
           <Link key={i} href={`/${e.key}`} className="glass py-3 px-3 w-full max-w-96 flex flex-col items-center justify-center gap-3">
-            <Image src={e.images[0]} className="w-full rounded-lg aspect-video" width={1920} height={1080} alt={e.title} />
+            <img src={e.images[0]} className="w-full rounded-lg aspect-video" alt={e.title} />
             <p className="text-white font-bold text-xl text-center">{e.title}</p>
           </Link>
         ))
