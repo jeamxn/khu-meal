@@ -15,9 +15,13 @@ import LoadingSpinner from "@/components/loadingSpinner";
 dayjs.locale("ko");
 
 const List = ({
+  title,
+  images,
   meal,
-  dateInserted
+  dateInserted,
 }: {
+  title: string;
+  images: string[];
   meal: string;
   dateInserted?: string;
   }) => {
@@ -98,7 +102,7 @@ const List = ({
       <div className="w-full h-[100svh] fixed top-0 left-0">
         <div className="min-md:hidden">
           {
-            ["/mor.jpeg", "/day.jpeg", "/night.jpeg"].map((e, i) => {
+            images.map((e, i) => {
               const thisOpacity = current - i + 1;
 
               return (
@@ -143,7 +147,7 @@ const List = ({
               }}
             >
               <p className="text-white font-bold text-xl text-center">
-                국제캠퍼스 제2기숙사
+                {title}
               </p>
             </div>
             <div className="flex flex-row items-center justify-center gap-3 min-md:w-2/3 max-md:w-full">
@@ -197,7 +201,7 @@ const List = ({
               }}
             >
               <p className="text-white font-bold text-xl text-center">
-                국제캠퍼스 제2기숙사
+                {title}
               </p>
             </div>
           </div>
